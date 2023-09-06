@@ -20,8 +20,9 @@ class LoginController extends Controller
             'password' => ['required']
         ]);
 
+
         // verificar si las credenciales son las que existen en la db
-        if(!auth()->attempt($request->only('email', 'password'))){
+        if(!auth()->attempt($request->only('email', 'password'), $request->remenber)){
             return back()->with('mensaje', 'Credenciales Incorrectas');
         }
 
