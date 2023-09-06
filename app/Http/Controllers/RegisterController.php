@@ -39,6 +39,15 @@ class RegisterController extends Controller
             // 'password' => Hash::make($request->password) hashear password en versiones inferiores
         ]);
 
+        // autenticar el usuario
+        // auth()->attempt([
+        //     'email' => $request->email,
+        //     'password' => $request->password
+        // ]);
+
+        // 2da forma de autenticar
+        auth()->attempt($request->only('email', 'password'));
+
         // redireccionar al usuario
         return Redirect()->route('posts.index');
 
