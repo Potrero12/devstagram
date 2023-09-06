@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class PostController extends Controller
 {
     //
-    public function index(Request $resquest){
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-        dump('Desde El Muro...');
+    public function index(User $user){
+
+        return view('dashboard', [
+            'user' => $user
+        ]);
 
     }
 }
