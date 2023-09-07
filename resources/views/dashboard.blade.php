@@ -1,4 +1,4 @@
-@extends('layout.app');
+@extends('layout.app')
 
 @section('titulo')
     Perfil: {{ $user->username }}
