@@ -27,7 +27,7 @@ class LoginController extends Controller
         }
 
         // si todo esta bien redireccionamos
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index', auth()->user()->username);
 
     }
 }
