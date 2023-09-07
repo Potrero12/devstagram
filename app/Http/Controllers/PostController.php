@@ -16,8 +16,14 @@ class PostController extends Controller
 
     public function index(User $user){
 
+        // trayendo los todos los post que tiene usuario logueado
+        $posts = Post::where('user_id', $user->id)->paginate(20);
+
+        // paginacion usando la relacion elocuent - se usa todo con la variable del $user
+
         return view('dashboard', [
-            'user' => $user
+            'user' => $user,
+            'posts' => $posts
         ]);
 
     }
@@ -50,6 +56,14 @@ class PostController extends Controller
         // $post->imagen = $request->imagen;
         // $post->user_id = auth()->user()->id;
         // $post->save();
+
+        // guardar usando las relaciones
+        // $request->user()->posts()->create([
+        //     'titulo' => $request->titulo,
+        //     'descripcion' => $request->descripcion,
+        //     'imagen' => $request->imagen,
+        //     'user_id' => auth()->user()->id
+        // ]);
 
         // redireccionar
         return redirect()->route('posts.index', auth()->user()->username);
