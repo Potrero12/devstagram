@@ -55,10 +55,10 @@
                 </div>
 
                 <input 
-                type="submit" 
-                value="Publicar" 
-                class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer font-bold w-full p-3 text-white rounded-lg"
-            />
+                    type="submit" 
+                    value="Publicar" 
+                    class="bg-sky-600 hover:bg-sky-700 transition-colors cursor-pointer font-bold w-full p-3 text-white rounded-lg"
+                />
             </form>
         </div>
     </div>
