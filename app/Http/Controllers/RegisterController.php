@@ -20,7 +20,7 @@ class RegisterController extends Controller
         // dump($request->get('username'));
 
         // modificar el request //opcional
-        // $request->request->add(['username' => Str::slug($request->username)]);
+        $request->request->add(['username' => Str::slug($request->username)]);
 
         // validacion formulario
         $this->validate($request, [
