@@ -19,7 +19,7 @@ class PostController extends Controller
     public function index(User $user){
 
         // trayendo los todos los post que tiene usuario logueado
-        $posts = Post::where('user_id', $user->id)->paginate(20);
+        $posts = Post::where('user_id', $user->id)->latest()->paginate(20);
 
         // paginacion usando la relacion elocuent - se usa todo con la variable del $user
 
