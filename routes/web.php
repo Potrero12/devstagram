@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ComentarioController;
 use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
@@ -13,9 +14,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 
 
-Route::get('/', function () {
-    return view('principal');
-});
+Route::get('/', HomeController::class)->name('home');
 
 // Auth - register
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
@@ -38,7 +37,6 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
-
 
 // comentarios
 Route::post('/{user:username}/posts/{post}', [ComentarioController::class, 'store'])->name('comentarios.store');
